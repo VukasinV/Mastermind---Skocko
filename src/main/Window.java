@@ -30,39 +30,39 @@ public class Window extends JFrame {
 	private JPanel panel;
 	private JPanel panel_1;
 	private JPanel panel_2;
+	private JPanel panel_3;
 	private JLabel lbl1;
 	private JLabel lbl2;
 	private JLabel lbl3;
 	private JLabel lbl4;
-	private JLabel rez1;
 	private JLabel lbl5;
 	private JLabel lbl6;
 	private JLabel lbl7;
 	private JLabel lbl8;
-	private JLabel rez2;
 	private JLabel lbl9;
 	private JLabel lbl10;
 	private JLabel lbl11;
 	private JLabel lbl12;
-	private JLabel rez3;
 	private JLabel lbl13;
 	private JLabel lbl14;
 	private JLabel lbl15;
 	private JLabel lbl16;
-	private JLabel rez4;
 	private JLabel lbl17;
 	private JLabel lbl18;
 	private JLabel lbl19;
 	private JLabel lbl20;
-	private JLabel rez5;
 	private JLabel lbl21;
 	private JLabel lbl22;
 	private JLabel lbl23;
 	private JLabel lbl24;
+	private JLabel rez1;
+	private JLabel rez2;
+	private JLabel rez3;
+	private JLabel rez4;
+	private JLabel rez5;
 	private JLabel rez6;
 	private JButton btnPik;
 	private JButton btnKaro;
-	private JPanel panel_3;
 	private JButton btnTref;
 	private JButton btnHerc;
 	private JButton btnJoker;
@@ -71,6 +71,9 @@ public class Window extends JFrame {
 	private JLabel lblRez2;
 	private JLabel lblRez3;
 	private JLabel lblRez4;
+	
+	// Ovde sam slicice pretvorio u promenjive koje kasnije mogu da se koriste
+	// Greska je sto sam trebao da nadjem bolji nacin sa relativnim putanjama
 	Icon karoSlicica = new ImageIcon("C:\\Users\\Vule\\workspace\\mmklabSinglePlayer\\src\\resources\\milutin.png");
 	Icon zvezdaSlicica = new ImageIcon("C:\\Users\\Vule\\workspace\\mmklabSinglePlayer\\src\\resources\\nova_zvezda.png");
 	Icon pikSlicica = new ImageIcon("C:\\Users\\Vule\\workspace\\mmklabSinglePlayer\\src\\resources\\piksezdeset.png");
@@ -801,8 +804,8 @@ public class Window extends JFrame {
 							lblRez4.setIcon(dodeliSlicicu(game.r));
 							JOptionPane.showMessageDialog(new JFrame(),
 									"NAZALOST NISI USPEO, ALI MOZES DA POKUSAS PONOVO!");
-							rez6.setText("" + brPogodjenihNaMestu + " " + brPogodjenih);
 						}
+							rez6.setText("" + brPogodjenihNaMestu + " " + brPogodjenih);
 					}
 				}
 			});
@@ -935,6 +938,10 @@ public class Window extends JFrame {
 		return btnRestartSestiRed;
 	}
 
+	// Sad ide 6 metoda od kojih svaka proverava u odgovarajucem redu, 
+	// gde treba da se stavi slicica klikom na dugme
+	// Siguran sam da ovo moze da se odradi na jednostavniji nacin,
+	// ali dok ja ili neko drugi ne smisli, ostaje ovako
 	public JLabel proveriDokleSiStigaoPrviRed() {
 		if (lbl1.getIcon() == null) {
 			return lbl1;
@@ -1019,6 +1026,7 @@ public class Window extends JFrame {
 		}
 	}
 
+	//Metoda kojom se unosi slicica u odredjeni red na odredjeno mesto
 	public void unesiSlicicu(Icon icon, int trenutniRed) {
 		switch (trenutniRed) {
 		case 1:
@@ -1068,7 +1076,8 @@ public class Window extends JFrame {
 		}
 
 	}
-
+	
+	//Metoda koja na osnovu slicice vraca odgovarajuci broj
 	public int dodeliKontrolniBr(JLabel lbl) {
 		if (lbl.getIcon() == pikSlicica) {
 			return 1;
@@ -1085,6 +1094,7 @@ public class Window extends JFrame {
 		}
 	}
 
+	//Metoda koja na osnovu broja vraca odgovarajucu slicicu
 	public Icon dodeliSlicicu(int a) {
 		switch (a) {
 		case 1:
@@ -1105,7 +1115,8 @@ public class Window extends JFrame {
 		}
 		return null;
 	}
-
+	
+	//Metoda koje ukoliko se pogodilo resenje, izbacuje poruku o tome u vidu upozoravajuceg prozorcica
 	public void daLiSiPobedio(int brPogodjenihNaMestu) {
 		if (brPogodjenihNaMestu == 4) {
 			lblRez1.setIcon(dodeliSlicicu(game.q));
@@ -1115,7 +1126,8 @@ public class Window extends JFrame {
 			JOptionPane.showMessageDialog(new JFrame(), "P O B E D I L I    S T E !!!");
 		}
 	}
-
+	
+	//Metoda koja brise sve lebele tako da igra moze krenuti od pocetka opet od prvog reda
 	private JButton getBtnPokusajPonovo() {
 		if (btnPokusajPonovo == null) {
 			btnPokusajPonovo = new JButton("POKUSAJ PONOVO");

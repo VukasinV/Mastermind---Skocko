@@ -22,6 +22,10 @@ public class Game {
 		LinkedList<Simbol> resenje = new LinkedList<>();
 		LinkedList<Simbol> pokusaj = new LinkedList<>();
 
+		// brojeve sam stavljao u bojekat "Simbol" koji pored broja ima i 
+		// boolean "proveren" koji ce mi pomoci da proverim koje brojeve 
+		// sam vec pregledao i brojao, a koje ne
+		
 		resenje.addLast(new Simbol(q));
 		resenje.addLast(new Simbol(w));
 		resenje.addLast(new Simbol(e));
@@ -32,6 +36,8 @@ public class Game {
 		pokusaj.addLast(new Simbol(e1));
 		pokusaj.addLast(new Simbol(r1));
 
+		// Prolazi kroz obe liste i broji one koji su na mestu
+		// a menjajuci "proveren" na true
 		for (int i = 0; i < 4; i++) {
 			if (resenje.get(i).getBroj() == pokusaj.get(i).getBroj()) {
 				brPogodjenihNaMestu++;
@@ -39,7 +45,9 @@ public class Game {
 				pokusaj.get(i).setProveren(true);
 			}
 		}
-
+		
+		// Prolazi kroz obe liste i broji one koji su pogodjeni,
+		// ali nisu na mestu
 		for (int i = 0; i < 4; i++) {
 			if (!pokusaj.get(i).isProveren()) {
 				for (int j = 0; j < 4; j++) {
@@ -54,6 +62,8 @@ public class Game {
 		}
 	}
 
+	// "naMestuIliNe" boolean sluzi da bi odredio da li vracam brPogodjenihNaMestu 
+	// ili samo brPogodjenih, da ne bi pisao dve odvojene metode
 	public int vratiBrojPogodjenih(int a, int b, int c, int d, boolean naMestuIliNe) {
 		brPogodjenih = 0;
 		brPogodjenihNaMestu = 0;

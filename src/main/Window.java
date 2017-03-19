@@ -71,15 +71,12 @@ public class Window extends JFrame {
 	private JLabel lblRez2;
 	private JLabel lblRez3;
 	private JLabel lblRez4;
-	
-	// Ovde sam slicice pretvorio u promenjive koje kasnije mogu da se koriste
-	// Greska je sto sam trebao da nadjem bolji nacin sa relativnim putanjama
-	Icon karoSlicica = new ImageIcon("C:\\Users\\Vule\\workspace\\mmklabSinglePlayer\\src\\resources\\milutin.png");
-	Icon zvezdaSlicica = new ImageIcon("C:\\Users\\Vule\\workspace\\mmklabSinglePlayer\\src\\resources\\nova_zvezda.png");
-	Icon pikSlicica = new ImageIcon("C:\\Users\\Vule\\workspace\\mmklabSinglePlayer\\src\\resources\\piksezdeset.png");
-	Icon hercSlicica = new ImageIcon("C:\\Users\\Vule\\workspace\\mmklabSinglePlayer\\src\\resources\\rsz_srce.jpg");
-	Icon trefSlicica = new ImageIcon("C:\\Users\\Vule\\workspace\\mmklabSinglePlayer\\src\\resources\\rsz_tref.png");
-	Icon jokerSlicica = new ImageIcon("C:\\Users\\Vule\\workspace\\mmklabSinglePlayer\\src\\resources\\rsz_joker.png");
+	Icon karoSlicica = new ImageIcon(".\\src\\resources\\karo_60x60.png");
+	Icon zvezdaSlicica = new ImageIcon(".\\src\\resources\\zvezda_60x60.png");
+	Icon pikSlicica = new ImageIcon(".\\src\\resources\\pik_60x60.png");
+	Icon hercSlicica = new ImageIcon(".\\src\\resources\\srce_60x60.jpg");
+	Icon trefSlicica = new ImageIcon(".\\src\\resources\\tref_60x60.png");
+	Icon jokerSlicica = new ImageIcon(".\\src\\resources\\joker_60x60.png");
 	private JLabel lblResenje;
 	private JPanel panel_4;
 	private JButton btnProveriPrviRed;
